@@ -10,7 +10,7 @@ SAlwaysShow = set([
 class ISOPrettifier:
     def prettify_lang(self, s, always_show_script=False):
         if not always_show_script and not s in SAlwaysShow:
-            from lang_data import ISOTools
+            from iso_tools import ISOTools
             s = ISOTools.remove_unneeded_info(s)
 
         pr_lang, pr_script, pr_territory, pr_variant = self.get_L_pretty(s)

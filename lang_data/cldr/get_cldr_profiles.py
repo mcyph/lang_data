@@ -20,7 +20,7 @@ class CLDRProfiles:
             ISOTools
         except:
             global ISOTools
-            from lang_data import ISOTools
+            from iso_tools import ISOTools
 
     #===========================================================#
     #                   ISO 639-3 Integration                   #
