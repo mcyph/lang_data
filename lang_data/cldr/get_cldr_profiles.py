@@ -1,10 +1,10 @@
 import codecs
 from os import listdir
 
-from toolkit.fast_copy import copy_
+from toolkit.copying.fast_copy import copy_
 from lang_data.data_paths import data_path
-from toolkit.get_D_keys import get_D_keys
-from lang_data import SCRIPT, TERRITORY, VARIANT, NONE
+from toolkit.dict_operations.get_D_keys import get_D_keys
+from iso_tools import SCRIPT, TERRITORY, VARIANT, NONE
 
 from get_D_cldr import get_D_cldr
 

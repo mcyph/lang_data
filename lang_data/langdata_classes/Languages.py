@@ -1,4 +1,4 @@
-from lang_data.iso_codes import ISOCodes
+from iso_tools.iso_codes import ISOCodes
 from get import get
 
 LANG_DEFAULT = ''                  # 'Azerbaijani'

@@ -1,0 +1,1 @@
+{"country_id": {"LType": ["utf-8", 273360, 109344], "type": "str", "len": 2}, "LKeys": {"LType": ["uint32", 0, 54672]}, "name": {"LType": ["uint32", 382704, 54672], "type": "names"}, "name_type": {"LType": ["utf-8", 218688, 54672], "len": 1, "DMap": {"DA": "B", "DP": "E", "LP": "C", "LA": "A"}, "type": "str"}}

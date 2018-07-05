@@ -1,4 +1,4 @@
-from lang_data.iso_codes import ISOCodes, DCountries
+from iso_tools.iso_codes import ISOCodes, DCountries
 
 
 SAlwaysShow = set([
@@ -24,7 +24,7 @@ class ISOPrettifier:
     def prettify_script(self, s):
         """
         Localizes a script/lang-name/variant
-        into a more human-readable format
+        into a more hu man-readable format
         """
         pr_lang, pr_script, pr_territory, pr_variant = self.get_L_pretty(s)
 
@@ -48,7 +48,7 @@ class ISOPrettifier:
         get the localized names of the language,
         script, territory+variant (if specified)
         """
-        from lang_data.ISOTools import ISOTools
+        from iso_tools.ISOTools import ISOTools
         lang, script, territory, variant = ISOTools.split(s)
 
         if lang:
