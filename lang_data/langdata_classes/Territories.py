@@ -7,6 +7,7 @@ COUNTRIES_LETTERS_ONLY = 2
 TERRITORY_DEFAULT = ''
 TERRITORY_VARIANT = 'variant'
 
+
 class Territories:
     #=====================================================#
     #                    Territories                      #

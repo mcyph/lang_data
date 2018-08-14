@@ -12,6 +12,7 @@ METAZONE_TYPE_GENERIC_FIRST = ('generic', 'standard')
 METAZONE_TYPE_DAYLIGHT_FIRST = ('daylight', 'generic')
 METAZONE_TYPE_STANDARD_FIRST = ('standard', 'generic')
 
+
 class Timezones:
     def __init__(self):
         self.DCities = {}

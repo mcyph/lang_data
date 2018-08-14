@@ -9,6 +9,7 @@ CURRENCY_OTHER = 'other'      # 'Yemeni rials'
 CURRENCY_TWO = 'two'          # 'ZWL' ???
 CURRENCY_ZERO = 'zero'        # 'Zimbabves dollāri (2009)'
 
+
 class Currencies:
     #=====================================================#
     #          Currencies and Currency Formats            #

@@ -6,6 +6,7 @@ CODE_PATTERN_LANGUAGE = 'language'
 CODE_PATTERN_SCRIPT = 'script'
 CODE_PATTERN_TERRITORY = 'territory'
 
+
 class Miscellaneous:
     #=====================================================#
     #                   Miscellaneous                     #

@@ -10,6 +10,7 @@ SCRIPT_VARIANT = 'variant'         # 'Perso-Arabic'
 SCRIPT_SECONDARY = 'secondary'
 SCRIPT_STAND_ALONE = 'stand-alone'
 
+
 class Languages:
     #=====================================================#
     #              Language and Script Names              #

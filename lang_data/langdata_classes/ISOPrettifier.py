@@ -1,11 +1,12 @@
 from iso_tools.iso_codes import ISOCodes, DCountries
 
 
-SAlwaysShow = set([
+SAlwaysShow = {
     # Don't shorten Taiwan Traditional Chinese
     # to "zh_Hant-TW" when printing
     'zh_Hant-TW'
-])
+}
+
 
 class ISOPrettifier:
     def prettify_lang(self, s, always_show_script=False):
