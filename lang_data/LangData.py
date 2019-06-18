@@ -49,13 +49,13 @@ class _LangData(Alphabets, Currencies, ISOPrettifier, Languages,
         * ISOPrettifier: Uses data in Languages, and format localisation in
           Miscellaneous, to allow pretty-printing languages
 
-          >> print(prettify_lang('zh_Hant-HK'))
+          >> print(ld.prettify_lang('zh_Hant-HK'))
 
         * Languages: Getting the names of languages from ISO 639 code, scripts
 
-          >> get_lang_name('en')
-          >> get_script_name('Latn')
-          >> get_variant_name(FIXME)
+          >> ld.get_lang_name('en')
+          >> ld.get_script_name('Latn')
+          >> ld.get_variant_name(FIXME)
 
         * Miscellaneous: Localisation of formats
           (such as for comma-separated lists, or parenthesis)
@@ -88,3 +88,57 @@ class _LangData(Alphabets, Currencies, ISOPrettifier, Languages,
 
     def get_territory(self):
         return self.D['territory']
+
+
+
+def get_L_possible_isos():
+    import os
+    from lang_data.data_paths import data_path
+    from iso_tools import ISOTools
+
+    LRtn = []
+
+    for fnam in os.listdir(data_path('cldr', 'main')):
+        if fnam.endswith('.xml'):
+            if fnam in ('en_US_POSIX.xml', 'el_POLYTON.xml', 'root.xml', 'ar_001.xml', 'es_419.xml'):  # TODO: FIX POLYTONIC GREEK!!
+                continue
+
+            try:
+                iso = ISOTools.locale_to_iso(fnam.rpartition('.')[0])
+                LRtn.append(iso)
+            except:
+                from warnings import warn
+                warn("can't make locale into ISO: %s" % fnam)
+
+    return LRtn
+
+if __name__ == '__main__':
+    from pprint import pprint
+    pprint(sorted(get_L_possible_isos()))
+
+    for iso in get_L_possible_isos():
+        ld = LangData(iso)
+        print ld.get_L_alpha()
+        print ld.get_L_symbols()
+
+        from char_data.unicodeset import unicodeset_from_range
+        print ld.get_L_alpha()[0][1]
+
+        for typ, data in ld.get_L_alpha():
+            print typ, data
+            for i in unicodeset_from_range(data):
+                print i
+
+
+
+
+
+
+
+
+
+
+
+
+
+

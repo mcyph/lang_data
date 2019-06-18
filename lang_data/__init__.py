@@ -1,1 +1,1 @@
-from LangData import LangData
+from LangData import LangData, get_L_possible_isos
