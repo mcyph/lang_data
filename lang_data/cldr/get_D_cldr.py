@@ -55,7 +55,16 @@ def get_recursive(elem, attr, STags):
 
         elem = elem.getparent()
 
+
+DCLDRCache = {}
+
 def get_D_cldr(path):
+    if not path in DCLDRCache:
+        DCLDRCache[path] = _get_D_cldr(path)
+    return DCLDRCache[path]
+
+
+def _get_D_cldr(path):
     DRtn = {
         'locale_name': path[:-4] if path[-4:] == '.xml' else path
     }
