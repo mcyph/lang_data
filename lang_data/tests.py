@@ -1,6 +1,6 @@
-from LangData import LangData
-from cldr.get_cldr_profiles import DPart3ToProfiles
-from langdata_classes.Timezones import METAZONE_SZ_LONG_FIRST, METAZONE_SZ_SHORT_FIRST
+from .LangData import LangData
+from .cldr.get_cldr_profiles import DPart3ToProfiles
+from .langdata_classes.Timezones import METAZONE_SZ_LONG_FIRST, METAZONE_SZ_SHORT_FIRST
 
 def tests(iso, profile=None):
     inst = LangData(iso, profile)
@@ -51,14 +51,14 @@ def tests(iso, profile=None):
     mls = inst.get_my_lang_string()
     DLang = inst.get_D_lang(mls)
     try:
-        print mls, inst.pretty_print_D_lang(DLang), DLang
+        print(mls, inst.pretty_print_D_lang(DLang), DLang)
     except KeyError:
-        print 'KeyError!'
+        print('KeyError!')
 
-    print inst.list_pattern_join(['apples'])
-    print inst.list_pattern_join(['apples', 'oranges'])
-    print inst.list_pattern_join(['apples', 'oranges', 'pears'])
-    print inst.list_pattern_join(['apples', 'oranges', 'pears', 'bananas', 'grapes'])
+    print(inst.list_pattern_join(['apples']))
+    print(inst.list_pattern_join(['apples', 'oranges']))
+    print(inst.list_pattern_join(['apples', 'oranges', 'pears']))
+    print(inst.list_pattern_join(['apples', 'oranges', 'pears', 'bananas', 'grapes']))
 
 if __name__ == '__main__':
     L = sorted(DPart3ToProfiles)
@@ -69,5 +69,5 @@ if __name__ == '__main__':
         if not i[1]:
             continue
 
-        print i
+        print(i)
         tests(*i)

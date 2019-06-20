@@ -31,11 +31,11 @@ class Alphabets:
         DSymbols = self.D['DSymbols']
 
         LRtn = []
-        for script1, DScript1 in DSymbols.items():
+        for script1, DScript1 in list(DSymbols.items()):
 
-            for script2, DScript2 in DScript1.items():
+            for script2, DScript2 in list(DScript1.items()):
                 LItem = []
-                for key, symbol in DScript2.items():
+                for key, symbol in list(DScript2.items()):
                     if not symbol and exclude_blank:
                         continue
                     elif len_limit and len(symbol)>len_limit:

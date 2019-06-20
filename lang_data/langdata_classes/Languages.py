@@ -1,5 +1,5 @@
 from iso_tools.iso_codes import ISOCodes
-from get import get
+from .get import get
 
 LANG_DEFAULT = ''                  # 'Azerbaijani'
 LANG_SHORT = 'short'               # 'Azeri'

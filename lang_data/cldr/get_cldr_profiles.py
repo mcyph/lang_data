@@ -1,4 +1,3 @@
-import codecs
 from os import listdir
 
 from toolkit.copying.fast_copy import copy_
@@ -6,7 +5,7 @@ from lang_data.data_paths import data_path
 from toolkit.dict_operations.get_D_keys import get_D_keys
 from iso_tools import SCRIPT, TERRITORY, VARIANT, NONE
 
-from get_D_cldr import get_D_cldr
+from .get_D_cldr import get_D_cldr
 
 
 DRoot = get_D_cldr('root.xml')
@@ -17,9 +16,9 @@ class CLDRProfiles:
 
     def _ensure_isotools(self):
         try:
+            global ISOTools
             ISOTools
         except:
-            global ISOTools
             from iso_tools import ISOTools
 
     #===========================================================#
@@ -163,7 +162,7 @@ class CLDRProfiles:
 
     def combine(self, x, y):
         same_type = type(x) == type(y)
-        both_strings = isinstance(x, basestring) and isinstance(y, basestring)
+        both_strings = isinstance(x, str) and isinstance(y, str)
         one_none = x is None or y is None
 
         assert same_type or both_strings or one_none, \
@@ -197,13 +196,13 @@ if __name__ == '__main__':
     for fnam in listdir(data_path('cldr', 'main')):
         if '_' in fnam:
             profile = fnam.split('.')[0]
-            print profile
+            print(profile)
             #get_D_profile(profile)
             
-            for key, value in get_D_keys(get_D_profile(profile)).items():
+            for key, value in list(get_D_keys(get_D_profile(profile)).items()):
                 D.setdefault(key, []).append(value)
     
-    with codecs.open('keys.txt', 'wb', 'utf-8') as f:
+    with open('keys.txt', 'w', encoding='utf-8') as f:
         for key, value in sorted(D.items()):
             frm = '%s: %s\n' % ('->'.join(key), 
                                 repr(value).decode('raw_unicode_escape', 'ignore')[:150])

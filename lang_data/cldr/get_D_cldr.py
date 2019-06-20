@@ -4,7 +4,7 @@
 
 from lxml import etree
 from lang_data.data_paths import data_path
-from cldr_ignored_tags import SBlank, SNumberSystemsOnly, STypeOnly
+from .cldr_ignored_tags import SBlank, SNumberSystemsOnly, STypeOnly
 
 DEBUG_MODE = False # turn me on for warnings!
 
@@ -14,8 +14,8 @@ def get(o, k, default=''):
 def get_tag_names(elem, add_keys=False):
     L = []
     while 1:
-        if add_keys and elem.keys():
-            items = '; '.join(['%s: %s' % (key, value) for key, value in elem.items()])
+        if add_keys and list(elem.keys()):
+            items = '; '.join(['%s: %s' % (key, value) for key, value in list(elem.items())])
             L.append('%s[%s]' % (elem.tag, items))
         else:
             L.append(elem.tag)
@@ -595,7 +595,7 @@ def get_D_cldr(path):
             # Tags with "type" and sometimes "alt" attributes
             for key in elem:
                 if not key in ('type', 'alt'):
-                    print 'tag %s key skipped warning: %s' % (tag, key)
+                    print('tag %s key skipped warning: %s' % (tag, key))
             
             D = DRtn.setdefault(DAlts[tag], {})
             typ = get(elem, 'type')
@@ -610,7 +610,7 @@ def get_D_cldr(path):
             # Tags with only "type" attributes
             for key in elem:
                 if key != 'type':
-                    print 'tag %s key skipped warning: %s' % (tag, key)
+                    print('tag %s key skipped warning: %s' % (tag, key))
             
             D = DRtn.setdefault(DTypes[tag], {})
             assert not 'alt' in elem
@@ -632,7 +632,7 @@ def get_D_cldr(path):
                 continue # root.xml HACK! ==============================================================
             
             if DEBUG_MODE:
-                print 'NOT HANDLED:', print_
+                print('NOT HANDLED:', print_)
     return DRtn
 
 if __name__ == '__main__':
@@ -643,11 +643,11 @@ if __name__ == '__main__':
     pprint(D)
     
     if False:
-        print
+        print()
         
         for path in os.listdir(data_path('cldr')):
             if path.endswith('.xml') and (path != 'root.xml' or True):
-                print 'OPENING:', path
+                print('OPENING:', path)
                 D = get_D_cldr(path)
-                print
+                print()
     

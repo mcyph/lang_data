@@ -1,4 +1,4 @@
-from get import get
+from .get import get
 
 COUNTRIES_ALL = 0
 COUNTRIES_CODES_ONLY = 1

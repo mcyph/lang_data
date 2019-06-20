@@ -1,4 +1,4 @@
-from get import get
+from .get import get
 
 METAZONE_SZ_LONG = 'long'
 METAZONE_SZ_SHORT = 'short'
@@ -18,7 +18,7 @@ class Timezones:
         self.DCities = {}
 
         DTZs = self.D['DTZs']
-        for k, D in DTZs.items():
+        for k, D in list(DTZs.items()):
             self.DCities[k.partition('/')[-1]] = D
 
     #=====================================================#
@@ -56,7 +56,7 @@ class Timezones:
         """
         DRtn = {}
         DTZs = self.D['DTZs']
-        for tz, i_D in DTZs.items():
+        for tz, i_D in list(DTZs.items()):
             if '' in i_D and 'exemplar_city' in i_D['']:
                 DRtn[tz] = i_D['']['exemplar_city']
         return DRtn

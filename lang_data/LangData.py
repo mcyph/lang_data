@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-from langdata_classes import Miscellaneous, Timezones, \
+from .langdata_classes import Miscellaneous, Timezones, \
     Territories, Currencies, Alphabets, ISOPrettifier, Languages
 
 
 def _ensure_cldr():
     try:
+        global CLDRProfiles
         CLDRProfiles
     except:
-        global CLDRProfiles
-        from cldr import CLDRProfiles
+        from .cldr import CLDRProfiles
 
 
 _DCache = {}
@@ -118,16 +118,16 @@ if __name__ == '__main__':
 
     for iso in get_L_possible_isos():
         ld = LangData(iso)
-        print ld.get_L_alpha()
-        print ld.get_L_symbols()
+        print(ld.get_L_alpha())
+        print(ld.get_L_symbols())
 
         from char_data.unicodeset import unicodeset_from_range
-        print ld.get_L_alpha()[0][1]
+        print(ld.get_L_alpha()[0][1])
 
         for typ, data in ld.get_L_alpha():
-            print typ, data
+            print(typ, data)
             for i in unicodeset_from_range(data):
-                print i
+                print(i)
 
 
 

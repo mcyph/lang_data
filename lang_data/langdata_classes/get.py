@@ -11,7 +11,7 @@ def get(D, default, L):
                     break
 
             if not found and default==KeyError:
-                print D
+                print(D)
                 raise KeyError(key)
             elif not found:
                 return default

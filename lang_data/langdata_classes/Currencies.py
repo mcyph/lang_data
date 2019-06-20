@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from get import get
+from .get import get
 
 CURRENCY_DEFAULT = ''         # 'Yemeni Rial'
 CURRENCY_FEW = 'few'          # 'zimbabvejska dolara (2009)'

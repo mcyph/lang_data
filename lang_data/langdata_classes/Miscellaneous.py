@@ -18,7 +18,7 @@ class Miscellaneous:
         """
         pat = self.D['locale_pattern']
         #print type(pat), type(normal), type(brackets)
-        return unicode(pat).format(normal, brackets)
+        return str(pat).format(normal, brackets)
 
     def join(self, L):
         """
@@ -38,24 +38,24 @@ class Miscellaneous:
         elif len(L) == 1:
             return L[0]
         elif len(L) == 2:
-            return unicode(DParts['2']).format(*L)
+            return str(DParts['2']).format(*L)
 
         # OPEN ISSUE: Optimize this if {0} is at the start of the string! ====================================
         # (It's not a top priority though)
         L = L[::-1]
-        r = unicode(DParts['start']).format(L.pop(), L.pop())
+        r = str(DParts['start']).format(L.pop(), L.pop())
         while 1:
             if len(L) == 1:
                 break
-            r = unicode(DParts['middle']).format(r, L.pop())
-        return unicode(DParts['end']).format(r, L.pop())
+            r = str(DParts['middle']).format(r, L.pop())
+        return str(DParts['end']).format(r, L.pop())
 
     def ellipsis(self, first, second=None, typ=ELLIPSIS_MEDIAL):
         """
         Puts contents into an ellipsis
         e.g. "A...Z"
         """
-        return unicode(self.D['DEllipsis'][typ]).format(first, second)
+        return str(self.D['DEllipsis'][typ]).format(first, second)
 
     def quotes(self, s):
         """
@@ -83,5 +83,5 @@ class Miscellaneous:
 
     def code_pattern(self, key, value):
         pattern = self.D['DCodePatterns'][key]
-        return unicode(pattern).format(value)
+        return str(pattern).format(value)
 
