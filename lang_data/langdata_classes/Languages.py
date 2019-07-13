@@ -12,6 +12,24 @@ SCRIPT_STAND_ALONE = 'stand-alone'
 
 
 class Languages:
+    def __init__(self):
+        DLangs = self.D['DLangs']
+
+        # Provide a case-insensitive map from the native language
+        # name in a given language and the ISO 639 code
+        self.DLangsByName = DLangsByName = {}
+
+        for iso_code, DLang in DLangs.items():
+            for lang_name in DLang.values():
+                lcase_lang_name = lang_name.lower()
+
+                if lcase_lang_name in DLangsByName:
+                    assert DLangsByName[lcase_lang_name] == iso_code, \
+                        f"Conflicting language name -> ISO code mapping: " \
+                            f"{lcase_lang_name} -> {iso_code} and {DLangsByName[lcase_lang_name]}"
+
+                DLangsByName[lcase_lang_name] = iso_code
+
     #=====================================================#
     #              Language and Script Names              #
     #=====================================================#
@@ -45,6 +63,17 @@ class Languages:
         else:
             part1 = part3 # WARNING! ===========================================
         return get(DLangs, default, [part1, typ])
+
+    def get_iso_from_lang_name(self, lang_name, default=KeyError):
+        """
+        Find the ISO 639-3 code from the localized name
+        """
+        try:
+            return self.DLangsByName[lang_name]
+        except KeyError:
+            if default == KeyError:
+                raise
+            return default
 
     def get_script_name(self, script, typ=SCRIPT_DEFAULT, default=KeyError):
         """

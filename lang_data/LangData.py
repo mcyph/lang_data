@@ -82,6 +82,7 @@ class _LangData(Alphabets, Currencies, ISOPrettifier, Languages,
             iso, allow_fallbacks=False
         )
         Timezones.__init__(self)
+        Languages.__init__(self)
 
     def get_script(self):
         return self.D['script']
@@ -128,17 +129,3 @@ if __name__ == '__main__':
             print(typ, data)
             for i in unicodeset_from_range(data):
                 print(i)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
