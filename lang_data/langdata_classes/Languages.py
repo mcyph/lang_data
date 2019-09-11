@@ -64,6 +64,29 @@ class Languages:
             part1 = part3 # WARNING! ===========================================
         return get(DLangs, default, [part1, typ])
 
+    def get_D_lang_names_to_iso(self, make_case_insensitive=False):
+        DRtn = {}
+        DLangs = self.D['DLangs']
+
+        for part3, DLang in DLangs.items():
+            for typ, loc_lang_name in DLang.items():
+                try:
+                    DISO = ISOCodes.get_D_iso(part3, add_alternates=False)
+                except KeyError:
+                    DISO = {}
+
+                # Try to convert to two-char codes
+                if 'part1' in DISO:
+                    part1 = DISO['part1']
+                else:
+                    part1 = part3
+
+                if make_case_insensitive:
+                    loc_lang_name = loc_lang_name.lower()
+                DRtn[loc_lang_name] = part1
+
+        return DRtn
+
     def get_iso_from_lang_name(self, lang_name, default=KeyError):
         """
         Find the ISO 639-3 code from the localized name

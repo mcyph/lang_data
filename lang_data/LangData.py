@@ -19,6 +19,11 @@ def LangData(iso, allow_fallback=False):
     if allow_fallback:
         iso = CLDRProfiles.get_closest_profile(iso)
 
+    # Limit the total amount of memory used
+    global _DCache
+    if len(_DCache) > 10:
+        _DCache = {}
+
     if not iso in _DCache:
         _DCache[iso] = _LangData(iso)
     return _DCache[iso]

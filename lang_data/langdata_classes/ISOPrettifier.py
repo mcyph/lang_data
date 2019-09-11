@@ -13,6 +13,7 @@ class ISOPrettifier:
         if not always_show_script and not s in SAlwaysShow:
             from iso_tools import ISOTools
             s = ISOTools.remove_unneeded_info(s)
+            #print("PRETTY:", s)
 
         pr_lang, pr_script, pr_territory, pr_variant = self.get_L_pretty(s)
 
