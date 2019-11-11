@@ -127,10 +127,10 @@ if __name__ == '__main__':
         print(ld.get_L_alpha())
         print(ld.get_L_symbols())
 
-        from char_data.unicodeset import unicodeset_from_range
+        from char_data.unicodeset import UnicodeSet
         print(ld.get_L_alpha()[0][1])
 
         for typ, data in ld.get_L_alpha():
             print(typ, data)
-            for i in unicodeset_from_range(data):
+            for i in UnicodeSet(data):
                 print(i)
