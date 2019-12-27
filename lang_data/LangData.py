@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
-from .langdata_classes import Miscellaneous, Timezones, \
-    Territories, Currencies, Alphabets, ISOPrettifier, Languages
+from lang_data.langdata_classes.Miscellaneous import Miscellaneous
+from lang_data.langdata_classes.Timezones import Timezones
+from lang_data.langdata_classes.Territories import Territories
+from lang_data.langdata_classes.Currencies import Currencies
+from lang_data.langdata_classes.Alphabets import Alphabets
+from lang_data.langdata_classes.ISOPrettifier import ISOPrettifier
+from lang_data.langdata_classes.Languages import Languages
 
 
 def _ensure_cldr():
