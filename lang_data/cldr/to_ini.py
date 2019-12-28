@@ -1,6 +1,6 @@
 from json import dumps
 
-from toolkit.json_tools import to_unicode
+from lang_data.toolkit.json_tools import to_unicode
 from .get_cldr_profiles import get_D_profile
 
 if __name__ == '__main__':

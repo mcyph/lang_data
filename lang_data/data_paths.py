@@ -1,5 +1,5 @@
 import os
-from toolkit.data_paths import DataPaths
+from lang_data.toolkit.paths.data_paths import DataPaths
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 

@@ -9,7 +9,17 @@ from codecs import open
 from os import path
 from os.path import join
 
-from toolkit.setuptools_helpers import get_L_data_dir
+from os import walk
+
+
+def get_L_data_dir(folder):
+    LData = []
+    for root, directories, filenames in walk(folder):
+        LData.append([
+            root,
+            [join(root, filename) for filename in filenames]
+        ])
+    return LData
 
 here = path.abspath(path.dirname(__file__))
 
