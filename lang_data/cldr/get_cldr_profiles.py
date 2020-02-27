@@ -3,7 +3,7 @@ from os import listdir
 from lang_data.toolkit.copying.fast_copy import copy_
 from lang_data.data_paths import data_path
 from lang_data.toolkit.dict_operations.get_D_keys import get_D_keys
-from iso_tools import SCRIPT, TERRITORY, VARIANT, NONE
+from iso_tools.isotools_classes.defines import SCRIPT, TERRITORY, VARIANT, NONE
 
 from .get_D_cldr import get_D_cldr
 
@@ -19,7 +19,7 @@ class CLDRProfiles:
             global ISOTools
             ISOTools
         except:
-            from iso_tools import ISOTools
+            from iso_tools.ISOTools import ISOTools
 
     #===========================================================#
     #                   ISO 639-3 Integration                   #

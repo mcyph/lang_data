@@ -1,4 +1,4 @@
-from iso_tools.iso_codes import ISOCodes, DCountries
+from iso_tools.ISOCodes import ISOCodes, DCountries
 
 
 SAlwaysShow = {
@@ -11,7 +11,7 @@ SAlwaysShow = {
 class ISOPrettifier:
     def prettify_lang(self, s, always_show_script=False):
         if not always_show_script and not s in SAlwaysShow:
-            from iso_tools import ISOTools
+            from iso_tools.ISOTools import ISOTools
             s = ISOTools.remove_unneeded_info(s)
             #print("PRETTY:", s)
 

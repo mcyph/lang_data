@@ -105,7 +105,7 @@ class _LangData(Alphabets, Currencies, ISOPrettifier, Languages,
 def get_L_possible_isos():
     import os
     from lang_data.data_paths import data_path
-    from iso_tools import ISOTools
+    from iso_tools.ISOTools import ISOTools
 
     LRtn = []
 
