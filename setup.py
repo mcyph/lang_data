@@ -34,8 +34,8 @@ setup(
     description='',
     long_description=long_description,
     url='https://github.com/mcyph/lang_data',
-    author='David Morrissey',
-    author_email='david.l.morrissey@gmail.com',
+    author='Dave Morrissey',
+    author_email='20507948+mcyph@users.noreply.github.com',
 
     classifiers=[  # Optional
         # How mature is this project? Common values are
